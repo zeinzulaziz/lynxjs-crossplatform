@@ -28,4 +28,8 @@ export default defineConfig({
       root: './build/client',
     },
   },
+  html: {
+    title: 'LynxJS Web',
+    favicon: './src/assets/favicon.png'
+  }
 });
