@@ -30,6 +30,6 @@ export default defineConfig({
   },
   html: {
     title: 'LynxJS Web',
-    favicon: './src/assets/favicon.ico'
-  }
+    favicon: './src/assets/favicon.ico',
+  },
 });
