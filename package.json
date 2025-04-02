@@ -7,7 +7,7 @@
     "build:mobile": "rspeedy build -c ./config/lynx.mobile.ts",
     "build:client": "rspeedy build -c ./config/lynx.web.ts && rsbuild build -c ./config/lynx.client.ts",
     "dev:mobile": "rspeedy dev -c ./config/lynx.mobile.ts",
-    "dev:client": "concurrently \"nodemon --watch ./src --ext * --exec \\\"rspeedy build -c ./config/lynx.web.ts\\\"\" \"rsbuild dev -c ./config/lynx.client.ts\"",
+    "dev:client": "npm run build:client && concurrently \"nodemon --watch ./src --ext * --exec \\\"rspeedy build -c ./config/lynx.web.ts\\\"\" \"rsbuild dev -c ./config/lynx.client.ts\"",
     "preview:mobile": "npm run build:mobile && rspeedy preview -c ./config/lynx.mobile.ts",
     "preview:client": "npm run build:client && rsbuild preview -c ./config/lynx.client.ts",
     "check": "biome check --write",
