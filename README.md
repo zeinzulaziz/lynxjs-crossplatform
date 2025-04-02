@@ -1,0 +1,111 @@
+# LynxJS Cross-Platform
+
+A project setup for building web and mobile applications using LynxJS.
+
+## Requirements
+
+- Node.js >= 18
+- npm
+
+## Installation
+
+```sh
+npm install
+```
+
+## Scripts
+
+### Building
+
+- **Build both mobile and client apps:**
+
+  ```sh
+  npm run build
+  ```
+
+  This runs the `build:mobile` and `build:client` scripts concurrently.
+
+- **Build Mobile App:**
+
+  ```sh
+  npm run build:mobile
+  ```
+
+  Uses `rspeedy` to build the mobile app with the configuration file `./config/lynx.mobile.ts`.
+
+- **Build Client App:**
+
+  ```sh
+  npm run build:client
+  ```
+
+  Uses `rspeedy` and `rsbuild` to build the web and client apps with the configuration files `./config/lynx.web.ts` and `./config/lynx.client.ts`.
+
+### Development
+
+- **Develop Mobile App:**
+
+  ```sh
+  npm run dev:mobile
+  ```
+
+  Uses `rspeedy` to start a dev server with hot-reloading using `./config/lynx.mobile.ts`.
+
+- **Develop Client App:**
+
+  ```sh
+  npm run dev:client
+  ```
+
+  Uses `concurrently` to watch changes and rebuild the web app with `rspeedy` and start a client dev server with `rsbuild`.
+
+### Preview
+
+- **Preview Mobile App:**
+
+  ```sh
+  npm run preview:mobile
+  ```
+
+  Builds the mobile app and serves it using `rspeedy` with `./config/lynx.mobile.ts`.
+
+- **Preview Client App:**
+
+  ```sh
+  npm run preview:client
+  ```
+
+  Builds the client app and serves it using `rsbuild` with `./config/lynx.client.ts`.
+
+### Code Quality
+
+- **Check Code Quality and Apply Fixes:**
+
+  ```sh
+  npm run check
+  ```
+
+  Uses `biome` to lint and apply fixes to the codebase.
+
+- **Format Code:**
+
+  ```sh
+  npm run format
+  ```
+
+  Formats code using `biome`.
+
+## Dependencies
+
+- **React (v19.1.0) & ReactDOM (v19.1.0):** React framework for building UI.
+- **@lynx-js/react, @lynx-js/web-core, @lynx-js/web-elements:** LynxJS libraries for creating web and mobile apps.
+
+## Dev Dependencies
+
+- **@biomejs/biome:** Linting and formatting tool.
+- **@lynx-js/qrcode-rsbuild-plugin, @lynx-js/react-rsbuild-plugin:** Plugins for enhancing LynxJS build.
+- **@lynx-js/rspeedy:** Tool for faster builds.
+- **@rsbuild/core, @rsbuild/plugin-react:** Build system components.
+- **Concurrently:** Tool for running multiple commands concurrently.
+- **Nodemon:** For auto-restarting the server during development.
+- **TypeScript:** Type checking and static analysis.

@@ -1,0 +1,39 @@
+{
+  "name": "lynxjs-crossplatform",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "concurrently \"npm run build:mobile\" \"npm run build:client\"",
+    "build:mobile": "rspeedy build -c ./config/lynx.mobile.ts",
+    "build:client": "rspeedy build -c ./config/lynx.web.ts && rsbuild build -c ./config/lynx.client.ts",
+    "dev:mobile": "rspeedy dev -c ./config/lynx.mobile.ts",
+    "dev:client": "concurrently \"nodemon --watch ./src --ext * --exec \\\"rspeedy build -c ./config/lynx.web.ts\\\"\" \"rsbuild dev -c ./config/lynx.client.ts\"",
+    "preview:mobile": "npm run build:mobile && rspeedy preview -c ./config/lynx.mobile.ts",
+    "preview:client": "npm run build:client && rsbuild preview -c ./config/lynx.client.ts",
+    "check": "biome check --write",
+    "format": "biome format --write"
+  },
+  "dependencies": {
+    "@lynx-js/react": "^0.106.1",
+    "@lynx-js/web-core": "^0.10.0",
+    "@lynx-js/web-elements": "^0.5.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@lynx-js/qrcode-rsbuild-plugin": "^0.3.4",
+    "@lynx-js/react-rsbuild-plugin": "^0.9.3",
+    "@lynx-js/rspeedy": "^0.8.6",
+    "@lynx-js/types": "^3.2.0",
+    "@rsbuild/core": "^1.2.16",
+    "@rsbuild/plugin-react": "^1.1.1",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "typescript": "~5.7.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true
+}
