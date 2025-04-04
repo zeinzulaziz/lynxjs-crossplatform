@@ -58,8 +58,9 @@ npm install
   ```
 
   Uses `concurrently` to watch changes and rebuild the web app with `rspeedy` and start a client dev server with `rsbuild`.
-  > [!NOTE]
-  > It will use the `build/web` distribution.
+
+> [!NOTE]
+> It will use the `build/web` distribution.
 
 ### Preview
 
