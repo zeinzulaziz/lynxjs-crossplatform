@@ -78,13 +78,14 @@ npm install
   npm run preview:client
   ```
 
+> [!IMPORTANT]
+> If you're using your distribution to host it, keep in mind that the `output.assetPrefix` is set to '/'. If you configure your client with a sub-path, make sure to update the `output.assetPrefix` in the [lynx.client.ts](./config/lynx.client.ts) config file to match the new route.
+> For example, if your route is `https://example.com/app`, you should set `output.assetPrefix` to '/app'.
+
   Builds the client app and serves it using `rsbuild` with `./config/lynx.client.ts`.
 
 > [!NOTE]
 > It will use the `build/client` distribution.
-> [!IMPORTANT]
-> If you're using your distribution to host it, keep in mind that the `output.assetPrefix` is set to '/'. If you configure your client with a sub-path, make sure to update the `output.assetPrefix` in the [lynx.client.ts](./config/lynx.client.ts) config file to match the new route.
-> For example, if your route is `https://example.com/app`, you should set `output.assetPrefix` to '/app'.
 
 ### Code Quality
 
