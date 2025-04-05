@@ -78,8 +78,8 @@ npm install
 
   Watches and rebuilds the web source if needed, then launches the Electron app with the bundled web assets.
 
-  > [!NOTE]
-  > It will use the `build/web` distribution.
+> [!NOTE]
+> It will use the `build/web` distribution.
 
 ### Preview
 
