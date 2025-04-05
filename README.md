@@ -17,7 +17,7 @@ npm install
 
 ### Building
 
-- **Build both mobile and client apps:**
+- **Build All (Mobile, Client and Desktop App):**
 
   ```sh
   npm run build
@@ -41,6 +41,14 @@ npm install
 
   Uses `rspeedy` and `rsbuild` to build the web and client apps with the configuration files `./config/lynx.web.ts` and `./config/lynx.client.ts`.
 
+  - **Build Desktop App:**
+
+  ```sh
+  npm run build:app
+  ```
+
+  Builds the web app, then builds the Electron client using `./config/lynx.app.ts`, and packages it using `electron-builder`.
+
 ### Development
 
 - **Develop Mobile App:**
@@ -61,6 +69,17 @@ npm install
 
 > [!NOTE]
 > It will use the `build/web` distribution.
+
+- **Develop Desktop App:**
+
+  ```sh
+  npm run dev:app
+  ```
+
+  Watches and rebuilds the web source if needed, then launches the Electron app with the bundled web assets.
+
+  > [!NOTE]
+  > It will use the `build/web` distribution.
 
 ### Preview
 
@@ -114,6 +133,8 @@ npm install
 
 - **@biomejs/biome:** Linting and formatting tool.
 - **@lynx-js/qrcode-rsbuild-plugin, @lynx-js/react-rsbuild-plugin:** Plugins for enhancing LynxJS build.
+- **electron:** Enables building cross-platform desktop apps using web technologies via Chromium and Node.js.
+- **electron-builder:** Packages and distributes Electron apps for Windows, macOS, and Linux with custom icons and configurations.
 - **@lynx-js/rspeedy:** Tool for faster builds.
 - **@rsbuild/core, @rsbuild/plugin-react:** Build system components.
 - **Concurrently:** Tool for running multiple commands concurrently.
