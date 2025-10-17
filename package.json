@@ -7,23 +7,35 @@
     "email": "john.doe@gmail.com"
   },
   "description": "Lorem Ipsum",
-  "scripts": {
-    "build": "concurrently \"npm run build:mobile\" \"npm run build:client\" \"npm run build:app\"",
-    "build:mobile": "rspeedy build -c ./config/lynx.mobile.ts",
-    "build:web": "rspeedy build -c ./config/lynx.web.ts",
-    "build:client": "npm run build:web && rsbuild build -c ./config/lynx.client.ts",
-    "build:app": "npm run build:web && rsbuild build -c ./config/lynx.app.ts && electron-builder",
-    "dev:mobile": "rspeedy dev -c ./config/lynx.mobile.ts",
-    "dev:client": "(test -f build/web/main.web.bundle || npm run build:web) && concurrently \"nodemon --watch ./src --ext * --exec \\\"npm run build:web\\\"\" \"rsbuild dev -o -c ./config/lynx.client.ts\"",
-    "dev:app": "(test -f build/web/main.web.bundle || npm run build:web) && concurrently \"nodemon --watch ./src --ext * --exec \\\"npm run build:web \\\"\" \"rsbuild build -c ./config/lynx.app.ts && electron main.js\"",
-    "preview:mobile": "npm run build:mobile && rspeedy preview -c ./config/lynx.mobile.ts",
-    "preview:client": "npm run build:client && rsbuild preview -o -c ./config/lynx.client.ts",
-    "check": "biome check --write",
-    "format": "biome format --write"
-  },
+"scripts": {
+  "build": "concurrently \"npm run build:mobile\" \"npm run build:client\" \"npm run build:app\"",
+  "build:mobile": "rspeedy build -c ./config/lynx.mobile.ts",
+  "build:web": "rspeedy build -c ./config/lynx.web.ts",
+  "build:client": "npm run build:web && rsbuild build -c ./config/lynx.client.ts",
+  "build:app": "npm run build:web && rsbuild build -c ./config/lynx.app.ts && electron-builder",
+  
+  "dev:mobile": "rspeedy dev -c ./config/lynx.mobile.ts",
+
+  "dev:web": "rspeedy start -c ./config/lynx.web.ts",
+  
+  "dev:client": "(test -f build/web/main.web.bundle || npm run build:web) && concurrently \"nodemon --watch ./src --ext ts,tsx --exec \\\"npm run build:web\\\"\" \"rsbuild dev -o -c ./config/lynx.client.ts\"",
+  "dev:auto": "npm run dev:client",
+
+  "dev:app": "(test -f build/web/main.web.bundle || npm run build:web) && concurrently \"nodemon --watch ./src --ext * --exec \\\"npm run build:web \\\"\" \"rsbuild build -c ./config/lynx.app.ts && electron main.js\"",
+
+  "preview:mobile": "npm run build:mobile && rspeedy preview -c ./config/lynx.mobile.ts",
+  "preview:client": "npm run build:client && rsbuild preview -o -c ./config/lynx.client.ts",
+
+  "check": "biome check --write",
+  "format": "biome format --write"
+},
+
   "main": "main.js",
   "build": {
-    "files": ["main.js", "build/app/**/*"],
+    "files": [
+      "main.js",
+      "build/app/**/*"
+    ],
     "win": {
       "icon": "build/app/favicon.ico"
     },
@@ -52,7 +64,7 @@
     "@lynx-js/types": "^3.2.0",
     "@rsbuild/core": "^1.2.16",
     "@rsbuild/plugin-react": "^1.1.1",
-    "concurrently": "^9.1.2",
+    "concurrently": "^9.2.1",
     "electron": "^35.1.4",
     "electron-builder": "^26.0.12",
     "nodemon": "^3.1.9",

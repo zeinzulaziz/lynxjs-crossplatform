@@ -29,7 +29,7 @@ export function App() {
               <image src={lynxLogo} className="Logo--lynx" />
             )}
           </view>
-          <text className="Title">React</text>
+          <text className="Title">tess</text>
           <text className="Subtitle">on Lynx</text>
         </view>
         <view className="Content">
